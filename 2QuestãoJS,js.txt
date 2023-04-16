@@ -1,0 +1,20 @@
+// 2- Questão JS
+
+// exemplo json
+const faturamentoMensal = {
+  "jan": [0, 1000, 500, 2000, 0, 0, 1500, 3000, 2500, 1000, 0, 0, 2000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+};
+
+//inicio
+const menorValor = Math.min(...faturamentoMensal.jan.filter((valor) => valor !== 0));
+console.log(`O menor valor de faturamento do mês foi ${menorValor}`);
+
+const maiorValor = Math.max(...faturamentoMensal.jan);
+console.log(`O maior valor de faturamento do mês foi ${maiorValor}`);
+
+const somaFaturamento = faturamentoMensal.jan.reduce((acumulador, valor) => acumulador + valor, 0);
+const diasComFaturamento = faturamentoMensal.jan.filter((valor) => valor !== 0).length;
+const mediaMensal = somaFaturamento / diasComFaturamento;
+
+const diasAcimaDaMedia = faturamentoMensal.jan.filter((valor) => valor > mediaMensal).length;
+console.log(`Houve ${diasAcimaDaMedia} dias em que o faturamento diário foi superior à média mensal`);
